@@ -4,15 +4,32 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+ /**
+ * The Class ConfigDataVo.
+ */
 public class ConfigDataVo implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The connection attributes. */
 	private List<String> connectionAttributes = new ArrayList<String>();
+	
+	/** The encrypted connection attributes. */
 	private	List<String> encryptedConnectionAttributes = new ArrayList<String>();
+	
+	/** The Connection attributes description. */
 	private String ConnectionAttributesDescription = "";
+	
+	/** The connection attributes type. */
 	private List<String> connectionAttributesType = new ArrayList<String>();
+	
+	/** The required connection attributes. */
 	private List<String> requiredConnectionAttributes = new ArrayList<String>();
 	
+	/**
+	 * Instantiates a new config data vo.
+	 */
 	public ConfigDataVo() {
 	 	
 		connectionAttributes.add("ECM_INSTANCE_URL");
@@ -31,44 +48,94 @@ public class ConfigDataVo implements Serializable {
 
 	
 
+	/**
+	 * Gets the connection attributes.
+	 *
+	 * @return the connection attributes
+	 */
 	public List<String> getConnectionAttributes() {
 		return connectionAttributes;
 	}
 
+	/**
+	 * Sets the connection attributes.
+	 *
+	 * @param connectionAttributes the new connection attributes
+	 */
 	public void setConnectionAttributes(List<String> connectionAttributes) {
 		this.connectionAttributes = connectionAttributes;
 	}
 
+	/**
+	 * Gets the encrypted connection attributes.
+	 *
+	 * @return the encrypted connection attributes
+	 */
 	public List<String> getEncryptedConnectionAttributes() {
 		return encryptedConnectionAttributes;
 	}
 
+	/**
+	 * Sets the encrypted connection attributes.
+	 *
+	 * @param encryptedConnectionAttributes the new encrypted connection attributes
+	 */
 	public void setEncryptedConnectionAttributes(List<String> encryptedConnectionAttributes) {
 		this.encryptedConnectionAttributes = encryptedConnectionAttributes;
 	}
 
 	 
 
+	/**
+	 * Gets the connection attributes description.
+	 *
+	 * @return the connection attributes description
+	 */
 	public String getConnectionAttributesDescription() {
 		return ConnectionAttributesDescription;
 	}
 
+	/**
+	 * Sets the connection attributes description.
+	 *
+	 * @param connectionAttributesDescription the new connection attributes description
+	 */
 	public void setConnectionAttributesDescription(String connectionAttributesDescription) {
 		ConnectionAttributesDescription = connectionAttributesDescription;
 	}
 
+	/**
+	 * Gets the connection attributes type.
+	 *
+	 * @return the connection attributes type
+	 */
 	public List<String> getConnectionAttributesType() {
 		return connectionAttributesType;
 	}
 
+	/**
+	 * Sets the connection attributes type.
+	 *
+	 * @param connectionAttributesType the new connection attributes type
+	 */
 	public void setConnectionAttributesType(List<String> connectionAttributesType) {
 		this.connectionAttributesType = connectionAttributesType;
 	}
 
+	/**
+	 * Gets the required connection attributes.
+	 *
+	 * @return the required connection attributes
+	 */
 	public List<String> getRequiredConnectionAttributes() {
 		return requiredConnectionAttributes;
 	}
 
+	/**
+	 * Sets the required connection attributes.
+	 *
+	 * @param requiredConnectionAttributes the new required connection attributes
+	 */
 	public void setRequiredConnectionAttributes(List<String> requiredConnectionAttributes) {
 		this.requiredConnectionAttributes = requiredConnectionAttributes;
 	}
