@@ -1,5 +1,16 @@
 package com.saviynt.ssm.abstractConnector;
 
+/**
+ * The Enum SearchableObject.
+ */
 public enum SearchableObject {
-	USER, ACCOUNT, ENTITLEMENT, ACCOUNT_ENTITLEMENT
+	
+	/** The user. */
+	USER, 
+ /** The account. */
+ ACCOUNT, 
+ /** The entitlement. */
+ ENTITLEMENT, 
+ /** The account entitlement. */
+ ACCOUNT_ENTITLEMENT
 }
