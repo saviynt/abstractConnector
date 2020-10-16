@@ -1,6 +1,5 @@
 package com.saviynt.ssm.abstractConnector.exceptions;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class InvalidFormatException.
  */
