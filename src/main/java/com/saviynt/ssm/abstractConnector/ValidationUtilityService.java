@@ -8,18 +8,42 @@ import org.springframework.context.ApplicationContextAware;
 
 import com.saviynt.ssm.abstractConnector.exceptions.ConnectorException;
 
+/**
+ * The Class ValidationUtilityService.
+ */
 public abstract class ValidationUtilityService implements ApplicationContextAware {
 
+	/** The application context. */
 	public static ApplicationContext applicationContext = null;
 
+	/**
+	 * Sets the application context.
+	 *
+	 * @param applicationContextObj the new application context
+	 * @throws BeansException the beans exception
+	 */
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContextObj) throws BeansException {
 		applicationContext = applicationContextObj;
 
 	}
 	
+	/**
+	 * Validate tasks.
+	 *
+	 * @param data the data
+	 * @return true, if successful
+	 * @throws ConnectorException the connector exception
+	 */
 	public abstract boolean validateTasks(Map<String,Object> data) throws ConnectorException;
 	
+	/**
+	 * Validate acc tasks.
+	 *
+	 * @param data the data
+	 * @return true, if successful
+	 * @throws Exception the exception
+	 */
 	public static boolean validateAccTasks(Map<String,Object> data)
 			throws Exception {
 		ValidationUtilityService validateService = applicationContext.getBean(ValidationUtilityService.class);
