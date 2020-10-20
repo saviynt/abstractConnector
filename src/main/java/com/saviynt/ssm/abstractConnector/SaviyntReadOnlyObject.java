@@ -9,7 +9,7 @@ import java.util.Map;
 public abstract class SaviyntReadOnlyObject {
 
 	/**
-	 * Gets the object list.
+	 * purpose: to get the object list.
 	 *
 	 * @param sObject the s object
 	 * @param filter the filter
