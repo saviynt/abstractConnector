@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.Map;
 
 import com.saviynt.ssm.abstractConnector.exceptions.ConnectorException;
+import com.saviynt.ssm.abstractConnector.exceptions.InvalidAttributeValueException;
+import com.saviynt.ssm.abstractConnector.exceptions.InvalidCredentialException;
+import com.saviynt.ssm.abstractConnector.exceptions.MissingKeyException;
+import com.saviynt.ssm.abstractConnector.exceptions.OperationTimeoutException;
 
 /**
  * The Class BaseConnectorSpecification.
@@ -14,7 +18,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Checks if is premises.
+	 * purpose: to check if is premises
 	 *
 	 * @return the boolean
 	 */
@@ -24,7 +28,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * Gets the config.
+	 * purpose: to get the config.
 	 *
 	 * @return the config
 	 */
@@ -36,7 +40,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * Gets the logon id and session id by client name.
+	 * purpose: to get the logon id and session id by client name.
 	 *
 	 * @param configData the config data
 	 * @param data the data
@@ -50,7 +54,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * Gets the logoff by session id.
+	 * purpose: to get the logoff by session id.
 	 *
 	 * @param configData the config data
 	 * @param data the data
@@ -64,7 +68,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * Gets the log off disc sessions.
+	 * purpose: to gets the log off disc sessions.
 	 *
 	 * @param configData the config data
 	 * @return the log off disc sessions
@@ -74,5 +78,8 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	public Boolean getLogOffDiscSessions(Map<String, Object> configData) throws ConnectorException {
 		throw new ConnectorException("Not Implemented");
 	}
+
+
+
 
 }
