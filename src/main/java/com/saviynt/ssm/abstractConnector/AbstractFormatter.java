@@ -19,7 +19,7 @@ public class AbstractFormatter implements ApplicationContextAware {
 	public static SaviyntReadOnlyObject saviyntReadOnlyObject;
 
 	/**
-	 * Sets the application context.
+	 * purpose: to set the application context.
 	 *
 	 * @param applicationContextObj the new application context
 	 * @throws BeansException the beans exception
@@ -32,7 +32,7 @@ public class AbstractFormatter implements ApplicationContextAware {
 	}
 
 	/**
-	 * Format data.
+	 * purpose: to format data.
 	 *
 	 * @param data the data
 	 * @return the list
