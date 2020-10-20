@@ -103,18 +103,7 @@ interface BaseConnector {
 	 * @throws ConnectorException the connector exception
 	 */
 	public abstract Boolean createAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
-	
 	/**
-	 * Account reconcile.
-	 *
-	 * @param configData the config data
-	 * @param data the data
-	 * @return the map
-	 * @throws ConnectorException the connector exception
-	 */
-	public abstract Map<String, List<Map<String, Object>>> accountReconcile(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
-
- 	/**
 	  * Update account.
 	  *
 	  * @param configData the config data
