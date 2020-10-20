@@ -49,7 +49,7 @@ public class ConfigDataVo implements Serializable {
 	
 
 	/**
-	 * purpose: to get the connection attributes
+	 * to get the connection attributes
 	 *
 	 * @return the connection attributes
 	 */
@@ -58,7 +58,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to set the connection attributes
+	 * to set the connection attributes
 	 *
 	 * @param connectionAttributes the new connection attributes
 	 */
@@ -67,7 +67,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to get the encrypted connection attributes
+	 * to get the encrypted connection attributes
 	 *
 	 * @return the encrypted connection attributes
 	 */
@@ -76,7 +76,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to set the encrypted connection attributes
+	 * to set the encrypted connection attributes
 	 *
 	 * @param encryptedConnectionAttributes the new encrypted connection attributes
 	 */
@@ -87,7 +87,7 @@ public class ConfigDataVo implements Serializable {
 	 
 
 	/**
-	 * purpose: to get the connection attributes description.
+	 * to get the connection attributes description.
 	 *
 	 * @return the connection attributes description
 	 */
@@ -96,7 +96,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to set the connection attributes description
+	 * to set the connection attributes description
 	 *
 	 * @param connectionAttributesDescription the new connection attributes description
 	 */
@@ -105,7 +105,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to get the connection attributes type
+	 * to get the connection attributes type
 	 *
 	 * @return the connection attributes type
 	 */
@@ -114,7 +114,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to set the connection attributes type
+	 * to set the connection attributes type
 	 *
 	 * @param connectionAttributesType the new connection attributes type
 	 */
@@ -123,7 +123,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to get the required connection attributes
+	 * to get the required connection attributes
 	 *
 	 * @return the required connection attributes
 	 */
@@ -132,7 +132,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * purpose: to set the required connection attributes
+	 * to set the required connection attributes
 	 *
 	 * @param requiredConnectionAttributes the new required connection attributes
 	 */

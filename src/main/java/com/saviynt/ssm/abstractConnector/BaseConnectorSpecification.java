@@ -18,7 +18,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * purpose: to check if is premises
+	 * to check if is premises
 	 *
 	 * @return the boolean
 	 */
@@ -28,7 +28,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * purpose: to get the config.
+	 * to get the config.
 	 *
 	 * @return the config
 	 */
@@ -40,7 +40,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * purpose: to get the logon id and session id by client name.
+	 * to get the logon id and session id by client name.
 	 *
 	 * @param configData the config data
 	 * @param data the data
@@ -54,7 +54,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * purpose: to get the logoff by session id.
+	 * to get the logoff by session id.
 	 *
 	 * @param configData the config data
 	 * @param data the data
@@ -68,7 +68,7 @@ public abstract class BaseConnectorSpecification implements Serializable, BaseCo
 	}
 
 	/**
-	 * purpose: to gets the log off disc sessions.
+	 * to gets the log off disc sessions.
 	 *
 	 * @param configData the config data
 	 * @return the log off disc sessions

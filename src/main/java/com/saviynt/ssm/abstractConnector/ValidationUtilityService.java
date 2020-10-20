@@ -17,7 +17,7 @@ public abstract class ValidationUtilityService implements ApplicationContextAwar
 	public static ApplicationContext applicationContext = null;
 
 	/**
-	 * purpose: to set the application context.
+	 * to set the application context.
 	 *
 	 * @param applicationContextObj the new application context
 	 * @throws BeansException the beans exception
@@ -29,7 +29,7 @@ public abstract class ValidationUtilityService implements ApplicationContextAwar
 	}
 	
 	/**
-	 * purpose: to validate tasks.
+	 * to validate tasks.
 	 *
 	 * @param data the data
 	 * @return true, if successful
@@ -38,7 +38,7 @@ public abstract class ValidationUtilityService implements ApplicationContextAwar
 	public abstract boolean validateTasks(Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * purpose: to validate acc tasks.
+	 * to validate acc tasks.
 	 *
 	 * @param data the data
 	 * @return true, if successful

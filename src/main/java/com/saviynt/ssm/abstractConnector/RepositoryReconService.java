@@ -17,7 +17,7 @@ public abstract class RepositoryReconService implements ApplicationContextAware 
 	public static ApplicationContext applicationContext = null;
 
 	/**
-	 * purpose: to set the application context.
+	 * to set the application context.
 	 *
 	 * @param applicationContextObj the new application context
 	 * @throws BeansException the beans exception
@@ -29,7 +29,7 @@ public abstract class RepositoryReconService implements ApplicationContextAware 
 	}
 
 	/**
-	 * purpose: to Update repositary.
+	 * to Update repositary.
 	 *
 	 * @param data the data
 	 * @param endpoints the endpoints
@@ -41,7 +41,7 @@ public abstract class RepositoryReconService implements ApplicationContextAware 
 			throws Exception;
 
 	/**
-	 * purpose: to Notify for recon process
+	 * to Notify for recon process
 	 *
 	 * @param data the data
 	 * @param endpointId the endpoint id
@@ -58,7 +58,7 @@ public abstract class RepositoryReconService implements ApplicationContextAware 
 
 	 
 	/**
-	 * purpose: to get the last run date from accounts.
+	 * to get the last run date from accounts.
 	 *
 	 * @param incrField the incr field
 	 * @return the last run date from accounts
@@ -67,7 +67,7 @@ public abstract class RepositoryReconService implements ApplicationContextAware 
 	public abstract Date getLastRunDateFromAccounts(String incrField) throws Exception;
 
 	/**
-	 * purpose: to get the last run date.
+	 * to get the last run date.
 	 *
 	 * @param incrField the incr field
 	 * @return the last run date
