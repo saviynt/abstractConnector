@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
- /**
+/**
  * The Class ConfigDataVo.
  */
 public class ConfigDataVo implements Serializable {
@@ -49,7 +49,7 @@ public class ConfigDataVo implements Serializable {
 	
 
 	/**
-	 * Gets the connection attributes.
+	 * purpose: to get the connection attributes
 	 *
 	 * @return the connection attributes
 	 */
@@ -58,7 +58,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Sets the connection attributes.
+	 * purpose: to set the connection attributes
 	 *
 	 * @param connectionAttributes the new connection attributes
 	 */
@@ -67,7 +67,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Gets the encrypted connection attributes.
+	 * purpose: to get the encrypted connection attributes
 	 *
 	 * @return the encrypted connection attributes
 	 */
@@ -76,7 +76,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Sets the encrypted connection attributes.
+	 * purpose: to set the encrypted connection attributes
 	 *
 	 * @param encryptedConnectionAttributes the new encrypted connection attributes
 	 */
@@ -87,7 +87,7 @@ public class ConfigDataVo implements Serializable {
 	 
 
 	/**
-	 * Gets the connection attributes description.
+	 * purpose: to get the connection attributes description.
 	 *
 	 * @return the connection attributes description
 	 */
@@ -96,7 +96,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Sets the connection attributes description.
+	 * purpose: to set the connection attributes description
 	 *
 	 * @param connectionAttributesDescription the new connection attributes description
 	 */
@@ -105,7 +105,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Gets the connection attributes type.
+	 * purpose: to get the connection attributes type
 	 *
 	 * @return the connection attributes type
 	 */
@@ -114,7 +114,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Sets the connection attributes type.
+	 * purpose: to set the connection attributes type
 	 *
 	 * @param connectionAttributesType the new connection attributes type
 	 */
@@ -123,7 +123,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Gets the required connection attributes.
+	 * purpose: to get the required connection attributes
 	 *
 	 * @return the required connection attributes
 	 */
@@ -132,7 +132,7 @@ public class ConfigDataVo implements Serializable {
 	}
 
 	/**
-	 * Sets the required connection attributes.
+	 * purpose: to set the required connection attributes
 	 *
 	 * @param requiredConnectionAttributes the new required connection attributes
 	 */
