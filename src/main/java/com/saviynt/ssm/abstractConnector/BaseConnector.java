@@ -17,8 +17,8 @@ interface BaseConnector {
 	/**
 	 * to get the logon id and session id by client name
 	 *
-	 * @param configData the config data
-	 * @param data the data
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the logon id and session id by client name
 	 * @throws ConnectorException the connector exception
 	 */
@@ -27,8 +27,8 @@ interface BaseConnector {
 	/**
 	 * to get the logoff by session id
 	 *
-	 * @param configData the config data
-	 * @param data the data
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the logoff by session id
 	 * @throws ConnectorException the connector exception
 	 */
@@ -37,7 +37,7 @@ interface BaseConnector {
 	/**
 	 * to get the log off disc sessions
 	 *
-	 * @param configData the config data
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
 	 * @return the log off disc sessions
 	 * @throws ConnectorException the connector exception
 	 */
@@ -60,8 +60,8 @@ interface BaseConnector {
 	/**
 	 * to test the connection
 	 *
-	 * @param configData the config data  for target connection information
-	 * @param filterData the data from ecm  for  input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param filterData the filter data for the data objects such as users,account etc from connection 
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 * @throws InvalidCredentialException the invalid credential exception
@@ -72,20 +72,20 @@ interface BaseConnector {
 	public abstract Boolean test(Map<String,Object> configData ,Map<String,Object> filterData) throws ConnectorException,InvalidCredentialException, InvalidAttributeValueException, OperationTimeoutException,MissingKeyException;
 
 	/**
-	 * to process reconsile for users and accounts
+	 * to process reconcile for users and accounts
 	 *
-	 * @param configData the config data  for target connection information
-	 * @param filterData the data from ecm  for  input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param filterData the filter data for the data objects such as users,account etc from connection 
 	 * @param formatterClass the formatter class
 	 * @throws ConnectorException the connector exception
 	 */
-	public abstract void reconsile(Map<String,Object> configData,Map<String, Object> filterData,String formatterClass) throws ConnectorException;
+	public abstract void reconcile(Map<String,Object> configData,Map<String, Object> filterData,String formatterClass) throws ConnectorException;
  	 
 	/**
-	* to check existing record for the input object.
+	 * to check existing record for the input object.
 	 *
-	 * @param configData the config data   for target connection information
-	 * @param data the data   for  input data from connection
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @param serachableObject for serachableObject
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
@@ -95,8 +95,8 @@ interface BaseConnector {
 	/**
 	 * to create the account in target system
 	 *
-	 * @param configData the config data   for target connection information
-	 * @param data the data  for  input data from connection
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -105,8 +105,8 @@ interface BaseConnector {
 	/**
 	 * to update the account in target system
 	 *
-	 * @param configData the config data   for target connection information
-	 * @param data the data  for  input data from connection
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the integer number of accounts updated
 	 * @throws ConnectorException the connector exception
 	 */
@@ -115,7 +115,7 @@ interface BaseConnector {
 	/**
 	 * to lock the account in target system
 	 *
-	 * @param configData the config data   for target connection information
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
 	 * @param data the data  for  input data from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
@@ -125,8 +125,8 @@ interface BaseConnector {
 	/**
 	 * to disable the account in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -135,8 +135,8 @@ interface BaseConnector {
 	/**
 	 * to unlock the account in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -145,8 +145,8 @@ interface BaseConnector {
     /**
 	 * to enable the account in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -155,8 +155,8 @@ interface BaseConnector {
 	/**
 	 * to terminate the account in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the integer number of accounts terminated
 	 * @throws ConnectorException the connector exception
 	 */
@@ -165,8 +165,8 @@ interface BaseConnector {
 	/**
 	 * to remove the account in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the integer number of accounts removed
 	 * @throws ConnectorException the connector exception
 	 */
@@ -176,8 +176,8 @@ interface BaseConnector {
 	/**
 	 * to add access to the account in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the integer access granted count
 	 * @throws ConnectorException the connector exception
 	 */
@@ -186,8 +186,8 @@ interface BaseConnector {
 	/**
 	 * to remove the account access in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the integer
 	 * @throws ConnectorException the connector exception
 	 */
@@ -196,8 +196,8 @@ interface BaseConnector {
 	/**
 	 * to change the password in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -206,8 +206,8 @@ interface BaseConnector {
     /**
      * to create the user in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
      */
@@ -216,8 +216,8 @@ interface BaseConnector {
     /**
 	 * to update the user in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the integer
 	 * @throws ConnectorException the connector exception
 	 */
@@ -226,8 +226,8 @@ interface BaseConnector {
 	/**
 	 * to update the entitlement in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the integer
 	 * @throws ConnectorException the connector exception
 	 */
@@ -236,8 +236,8 @@ interface BaseConnector {
 	/**
 	 * to create the entitlement in target system
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -246,8 +246,8 @@ interface BaseConnector {
 	/**
 	 * to validate credentials of the given input from connection
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -256,21 +256,24 @@ interface BaseConnector {
 	/**
 	 * to get the summary of number of records for the given input object such as accounts
 	 *
-	 * @param configData the config data for target connection information
-	 * @param data the data for input data from connection 
+	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param data the data for the data objects such as users,account etc from connection
 	 * @return the summary map with object and count as key ,value 
 	 */
 	public abstract  Map<String, Object> getSummary(Map<String,Object> configData, Map<String,Object> data);
 	
 	/**
-	 * to set the config with attributes needed for creating a connection
+	 * to set the config with attributes needed for creating a connection in SSM.
+	 * The attributes defined in setConfig are the attributes that would dynamically
+	 * populate on connection creation under SSM
 	 *
-	 * @param configData the new config for input connection attributes from connection created
+	 * @param configData the new config for input connection attributes from
+	 *                   connection created
 	 */
 	public abstract  void setConfig(ConfigDataVo configData);
 	
 	/**
-	 * to get the config of connection attributes for creating a connection
+	 * to get the connection attributes configured using setConfig when creating a connection
 	 *
 	 * @return the new config for input connection attributes from connection created
 	 */
@@ -279,7 +282,7 @@ interface BaseConnector {
  	/**
 	  * to checks if is premises
 	  *
-	  * @return the boolean true or flase
+	  * @return the boolean true or false
 	  */
 	 public Boolean isPremises();
 	
