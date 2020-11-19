@@ -27,8 +27,25 @@ interface BaseConnector {
 	/**
 	 * to get the logoff by session id
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the logoff by session id
 	 * @throws ConnectorException the connector exception
 	 */
@@ -37,7 +54,15 @@ interface BaseConnector {
 	/**
 	 * to get the log off disc sessions
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
 	 * @return the log off disc sessions
 	 * @throws ConnectorException the connector exception
 	 */
@@ -60,8 +85,25 @@ interface BaseConnector {
 	/**
 	 * to test the connection
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param filterData the filter data for the data objects such as users,account etc from connection 
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param filterData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 * @throws InvalidCredentialException the invalid credential exception
@@ -74,9 +116,26 @@ interface BaseConnector {
 	/**
 	 * to process reconcile for users and accounts
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param filterData the filter data for the data objects such as users,account etc from connection 
-	 * @param formatterClass the formatter class
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param filterdata In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
+     * @param formatterClass the formatter class
 	 * @throws ConnectorException the connector exception
 	 */
 	public abstract void reconcile(Map<String,Object> configData,Map<String, Object> filterData,String formatterClass) throws ConnectorException;
@@ -84,8 +143,26 @@ interface BaseConnector {
 	/**
 	 * to check existing record for the input object.
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
+
 	 * @param serachableObject for serachableObject
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
@@ -95,8 +172,25 @@ interface BaseConnector {
 	/**
 	 * to create the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -105,8 +199,25 @@ interface BaseConnector {
 	/**
 	 * to update the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the integer number of accounts updated
 	 * @throws ConnectorException the connector exception
 	 */
@@ -114,9 +225,25 @@ interface BaseConnector {
 	
 	/**
 	 * to lock the account in target system
-	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data  for  input data from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -125,8 +252,25 @@ interface BaseConnector {
 	/**
 	 * to disable the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -135,8 +279,25 @@ interface BaseConnector {
 	/**
 	 * to unlock the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -145,8 +306,25 @@ interface BaseConnector {
     /**
 	 * to enable the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -155,8 +333,25 @@ interface BaseConnector {
 	/**
 	 * to terminate the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the integer number of accounts terminated
 	 * @throws ConnectorException the connector exception
 	 */
@@ -165,8 +360,25 @@ interface BaseConnector {
 	/**
 	 * to remove the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the integer number of accounts removed
 	 * @throws ConnectorException the connector exception
 	 */
@@ -176,8 +388,25 @@ interface BaseConnector {
 	/**
 	 * to add access to the account in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the integer access granted count
 	 * @throws ConnectorException the connector exception
 	 */
@@ -186,8 +415,25 @@ interface BaseConnector {
 	/**
 	 * to remove the account access in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the integer
 	 * @throws ConnectorException the connector exception
 	 */
@@ -196,8 +442,25 @@ interface BaseConnector {
 	/**
 	 * to change the password in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -206,8 +469,25 @@ interface BaseConnector {
     /**
      * to create the user in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
      */
@@ -216,8 +496,25 @@ interface BaseConnector {
     /**
 	 * to update the user in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the integer
 	 * @throws ConnectorException the connector exception
 	 */
@@ -236,8 +533,25 @@ interface BaseConnector {
 	/**
 	 * to create the entitlement in target system
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -246,8 +560,25 @@ interface BaseConnector {
 	/**
 	 * to validate credentials of the given input from connection
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the boolean true or false
 	 * @throws ConnectorException the connector exception
 	 */
@@ -256,8 +587,25 @@ interface BaseConnector {
 	/**
 	 * to get the summary of number of records for the given input object such as accounts
 	 *
-	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
-	 * @param data the data for the data objects such as users,account etc from connection
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
+	 * @param data       In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
+	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
+	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
+	 *                   ConnectionType(Example:sampleconntype) is chosen and connection attributes are dynamically populated. These
+	 *                   connection attributes need to be inputed with relative data.For Example, ReconcileJSON need to be inputed with
+	 *                   objects Users,Account,Entitlement (Example: "ACCOUNT" : [ { "saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 * 					"ACCOUNT_ATTRIBUTES" : [ {"saviyntproperty": "Inputsaviyntproperty", "sourceproperty": "${Inputsourceproperty}" } ],
+	 *                   "USERS" : [ "saviyntproperty": "Inputsaviyntproperty","sourceproperty": "${Inputsourceproperty}" } ], "ENTITLEMENT" : [ {"saviyntproperty": "Inputsaviyntproperty",
+	 *                   "sourceproperty": "${Inputsourceproperty}" } ] data holds all these inputed details of JSON attributes from connection
 	 * @return the summary map with object and count as key ,value 
 	 */
 	public abstract  Map<String, Object> getSummary(Map<String,Object> configData, Map<String,Object> data);
@@ -267,8 +615,15 @@ interface BaseConnector {
 	 * The attributes defined in setConfig are the attributes that would dynamically
 	 * populate on connection creation under SSM
 	 *
-	 * @param configData the new config for input connection attributes from
-	 *                   connection created
+	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
+	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
+	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
+	 *                   ['512','active'],'deleteLinks':true,'accountThresholdValue':1000,'correlateInactiveAccounts':false,'inactivateAccountsNotInFile':false}
+	 *                   ) for the selected sampleconnector.Upon having a connection Type for sampleconnector, a new connection is to be
+	 *                   created.At the time of creating a new connection, ConnectionType(Example:sampleconntype) is chosen and
+	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
+	 *                   for target connection information and other system configuration attributes. configData holds all these
+	 *                   inputed details of target connection and system configuration.
 	 */
 	public abstract  void setConfig(ConfigDataVo configData);
 	
