@@ -142,7 +142,7 @@ interface BaseConnector {
 	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
 	 *                   for target connection information and other system configuration attributes. configData holds all these
 	 *                   inputed details of target connection and system configuration.
-	 * @param filterdata In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 * @param filterData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
 	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
 	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
 	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
