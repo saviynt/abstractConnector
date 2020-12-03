@@ -24,6 +24,13 @@ public class ConnectorException extends RuntimeException {
 	public ConnectorException(String message) {
 		super(message);
 	}
+	/**
+	 * Instantiates a new connector exception with code
+	 * @param code the error code
+	 * @param message the error message
+	 */
+	public ConnectorException(String code,String message) {
+	}
 
 	/**
 	 * Instantiates a new connector exception.

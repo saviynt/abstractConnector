@@ -101,6 +101,10 @@ interface BaseConnector {
 
 	/**
 	 * to test the connection
+	 * Example : To test the connection , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to target system using JDBC connection
+	 * step 3 : return true if connection is successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -111,7 +115,7 @@ interface BaseConnector {
 	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
 	 *                   for target connection information and other system configuration attributes. configData holds all these
 	 *                   inputed details of target connection and system configuration.
-	 * @param filterData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 * @param data In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
 	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
 	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
 	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
@@ -128,11 +132,16 @@ interface BaseConnector {
 	 * @throws OperationTimeoutException the operation timeout exception
 	 * @throws MissingKeyException the missing key exception
 	 */
-	public abstract Boolean test(Map<String,Object> configData ,Map<String,Object> filterData) throws ConnectorException,InvalidCredentialException, InvalidAttributeValueException, OperationTimeoutException,MissingKeyException;
+	public abstract Boolean test(Map<String,Object> configData ,Map<String,Object> data) throws ConnectorException,InvalidCredentialException, InvalidAttributeValueException, OperationTimeoutException,MissingKeyException;
 
 	/**
 	 * to process reconcile for users and accounts
-	 *
+	 * Example : to process reconcile for users and accounts , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : collect the data(Account,Users,Entitlements) from target system
+	 * step 3 : set the data into the format accepted by connector framework's notify
+	 * step 4 : call connector framework's notify method 
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -142,7 +151,7 @@ interface BaseConnector {
 	 *                   connection attributes are dynamically populated. These connection attributes need to be inputed with relative data
 	 *                   for target connection information and other system configuration attributes. configData holds all these
 	 *                   inputed details of target connection and system configuration.
-	 * @param filterData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
+	 * @param data In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name:
 	 *                   sampleconntype) connection attributes are defined for  different tasks such as reconciliation,
 	 *                   provisioning(createaccount,addaccesstoaccount etc) in the form of JSON's(Example:ReconcileJSON,addAccesstToAccountJSON) for the selected sampleconnector.Upon having
 	 *                   a connection Type for sampleconnector, a new connection is to be created.At the time of creating a new connection,
@@ -155,11 +164,16 @@ interface BaseConnector {
      * @param formatterClass the formatter class
 	 * @throws ConnectorException the connector exception
 	 */
-	public abstract void reconcile(Map<String,Object> configData,Map<String, Object> filterData,String formatterClass) throws ConnectorException;
+	public abstract void reconcile(Map<String,Object> configData,Map<String, Object> data,String formatterClass) throws ConnectorException;
  	 
 	/**
 	 * to check existing record for the input object.
-	 *
+	 * Example : to check existing record for the input object(for account) , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : set the data with filters if any
+	 * step 3 : call getObjectList
+	 * step 4 : return true if object exists
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -187,8 +201,13 @@ interface BaseConnector {
 	public abstract Boolean checkExisting(Map<String,Object> configData,Map<String,Object> data,SearchableObject serachableObject) throws ConnectorException;
 	
 	/**
-	 * to create the account in target system
-	 *
+	 * to create account in the target system 
+	 * Example : to create account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to create account in the target system
+	 * step 4 : return true if successful
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -214,8 +233,13 @@ interface BaseConnector {
 	public abstract Boolean createAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to update the account in target system
-	 *
+	 * to update account in the target system
+	 * Example : to update account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to update account in the target system
+	 * step 4 : return true if successful
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -242,6 +266,12 @@ interface BaseConnector {
 	
 	/**
 	 * to lock the account in target system
+	 * Example : to lock account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to lock account in the target system
+	 * step 4 : return true if successful
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -267,8 +297,13 @@ interface BaseConnector {
 	public abstract Boolean lockAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to disable the account in target system
-	 *
+	 * to disable account in the target system
+	 * Example : to disable account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to disable account in the target system
+	 * step 4 : return true if successful
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -294,8 +329,12 @@ interface BaseConnector {
 	public abstract Boolean disableAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to unlock the account in target system
-	 *
+	 * to unlock account in the target system
+	 * Example : to disable account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to disable account in the target system
+	 * step 4 : return true if successful
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -321,8 +360,12 @@ interface BaseConnector {
     public abstract Boolean unLockAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
     /**
-	 * to enable the account in target system
-	 *
+	 * Example : to enable account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to enable account in the target system
+	 * step 4 : return true if successful
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -348,7 +391,12 @@ interface BaseConnector {
 	public abstract Boolean enableAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to terminate the account in target system
+	 * to terminate account in the target system
+	 * Example : to terminate account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to terminate account in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -375,7 +423,12 @@ interface BaseConnector {
 	public abstract Integer terminateAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to remove the account in target system
+	 * to remove account in the target system
+	 * Example : to remove account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to remove account in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -403,7 +456,12 @@ interface BaseConnector {
  
 
 	/**
-	 * to add access to the account in target system
+	 * to add access to account in the target system
+	 * Example : to add access to account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to add access to account in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -430,7 +488,12 @@ interface BaseConnector {
 	public abstract Integer addAccessToAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to remove the account access in target system
+	 * to remove access to account in the target system
+	 * Example : to remove access to account in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to remove access to account in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -457,7 +520,12 @@ interface BaseConnector {
 	public abstract Integer removeAccessToAccount(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to change the password in target system
+	 * to change password in the target system
+	 * Example : to change password in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to change password in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -484,7 +552,12 @@ interface BaseConnector {
 	 public abstract Boolean changePassword(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
     /**
-     * to create the user in target system
+     * to create user in the target system
+	 * Example : to create user in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to create user in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -511,7 +584,12 @@ interface BaseConnector {
     public abstract Boolean createUser(Map<String,Object> configData,Map<String,Object> data) throws ConnectorException;
 	
     /**
-	 * to update the user in target system
+	 * to update user in the target system
+	 * Example : to update user in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to update user in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
@@ -539,6 +617,11 @@ interface BaseConnector {
 	
 	/**
 	 * to update the entitlement in target system
+	 * Example : to update entitlement in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to update entitlement in the target system
+	 * step 4 : return true if successful
 	 *
 	 * @param configData the config data for target connection information and other system configuration attributes such as version,status threshold
 	 * @param data the data for the data objects such as users,account etc from connection
@@ -549,7 +632,12 @@ interface BaseConnector {
 	
 	/**
 	 * to create the entitlement in target system
-	 *
+	 * Example : to create entitlement in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to create entitlement in the target system
+	 * step 4 : return true if successful
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -576,7 +664,12 @@ interface BaseConnector {
 	
 	/**
 	 * to validate credentials of the given input from connection
-	 *
+	 * Example : to validate credentials in the target system , refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : connect to the target system
+	 * step 3 : execute the query/process the required input to validate credentials in the target system
+	 * step 4 : return true if successful
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
@@ -602,8 +695,12 @@ interface BaseConnector {
 	public abstract Boolean validateCredentials(Map<String,Object> configData, Map<String,Object> data) throws ConnectorException;
 	
 	/**
-	 * to get the summary of number of records for the given input object such as accounts
-	 *
+	 * to get the summary of number of records for the given input object such as account
+	 * Example : to get the summary of number of records for the given input object such as account, refer to the below steps
+	 * step 1 : retrieve connection attributes from configData/Data
+	 * step 2 : set the data with filters if any
+	 * step 3 : call getObjectList
+	 * 
 	 * @param configData In Saviynt Security Manager(SSM/ECM),when creating a new ConnectionType(Example: ConnectionType name: sampleconntype) connection attributes are defined for the
 	 *                   target connection information such as system url,username,password etc and other system configuration  attributes such as ECM_INSTANCE_URL
 	 *                   ,ECM_INSTANCE_SERVICE_ACCOUNT_NAME,ECM_INSTANCE_SERVICE_ACCOUNT_PASSWORD,STATUSKEYJSON, STATUS_THRESHOLD_CONFIG_JSON(Example :'statusColumn':'customproperty30','activeStatus':
